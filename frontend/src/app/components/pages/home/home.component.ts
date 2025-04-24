@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Jersey } from '../../../shared/models/jersey';
 import { JerseyService } from '../../../services/jersey.service';
 import { RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,13 @@ import { RouterLink } from '@angular/router';
 export class HomeComponent {
   jerseyList: Jersey[] = [];
 
-  constructor(private jerseyService: JerseyService){
-    this.jerseyList = jerseyService.getAll();
+  constructor(private jerseyService:JerseyService, activatedRoute: ActivatedRoute){
+    activatedRoute.params.subscribe((params) => {
+      if(params.searchTerm)
+        this.jerseyList = this.jerseyService.getAllJerseyBySearchTerm(params.searchTerm);
+      else
+        this.jerseyList = jerseyService.getAll();
+    });
+    
   }
 }

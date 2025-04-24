@@ -11,4 +11,8 @@ export class JerseyService {
   getAll(): Jersey[]{
     return jerseyList;
   }
+
+  getAllJerseyBySearchTerm(searchTerm: string){
+    return this.getAll().filter(jersey => jersey.team.toLowerCase().includes(searchTerm.toLowerCase()));
+  }
 }

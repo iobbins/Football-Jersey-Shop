@@ -1,0 +1,43 @@
+<div class="menu-container">
+    <a>Vintage</a>
+    <a>Specials</a>
+    <div class="dropdown-container">
+        <button class="dropdown-button">Serie A</button>
+        <div class="dropdown-content">
+            <div class="dropdown-row">
+                <div class="dropdown-column">
+                    <a routerLink="/">Inter Milan</a>
+                    <a routerLink="/">Roma</a>
+                    <a routerLink="/">Juventus</a>
+                    <a routerLink="/">Napoli</a>
+                    <a routerLink="/">Milan</a>
+                    <a routerLink="/">Lazio</a>
+                    <a routerLink="/">Como</a>
+                </div>
+                <div class="dropdown-column">
+                    <a routerLink="/">Torino</a>
+                    <a routerLink="/">Fiorentina</a>
+                    <a routerLink="/">Genoa</a>
+                    <a routerLink="/">Parma</a>
+                    <a routerLink="/">Lecce</a>
+                    <a routerLink="/">Venezia</a>
+                    <a routerLink="/">Bologna</a>
+                </div>
+                <div class="dropdown-column">
+                    <a routerLink="/">Atalanta</a>
+                    <a routerLink="/">Cagliari</a>
+                    <a routerLink="/">Udinese</a>
+                    <a routerLink="/">Hellas Verona</a>
+                    <a routerLink="/">Empoli</a>
+                    <a routerLink="/">Monza</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a>Serie B</a>
+    <a>Nationals</a>
+    <div class="container-search">
+        <input #s type="text" placeholder="Search jersey" (keyup.enter)="search(s.value)" [value]="searchTerm">
+        <button (click)="search(s.value)" class="search" type="button">Search</button>
+    </div>
+</div>
