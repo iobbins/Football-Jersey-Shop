@@ -1,0 +1,26 @@
+<ul>
+    <li *ngFor="let jersey of jerseyList">
+        <a routerLink="/jersey/{{jersey.id}}">
+            <img [src]="jersey.image">
+            <div class="content">
+                <div class="team">
+                    {{jersey.team}} {{jersey.year}}
+                </div>
+                <div class="type">
+                    {{jersey.type}}
+                </div>
+                <div class="player">
+                    {{jersey.player}}
+                </div>
+                <span class="favorite {{jersey.favorite?'':'not'}}">
+                    &#10084;
+                </span>
+                <div class="price">
+                    <span>
+                        {{jersey.price | currency}}
+                    </span>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
