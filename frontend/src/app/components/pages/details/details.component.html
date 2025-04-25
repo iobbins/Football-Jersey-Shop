@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="container-image">
+        <img class="image" [src]="jersey?.image">
+    </div>
+    <div class="details">
+        <div class="header">
+            <h2 class="jersey-name">{{jersey?.team}} {{jersey?.year}}</h2>
+            <span class="favorite {{jersey?.favorite?'':'not'}}">
+                &#10084;
+            </span>
+        </div>
+
+        <h4>{{jersey?.type}}</h4>
+        
+        <div class="price">
+          {{jersey?.price | currency}}  
+        </div>
+        
+        <p>Select size</p>
+        <button class="button-size">XS</button>
+        <button class="button-size">S</button>
+        <button class="button-size">M</button>
+        <button class="button-size">L</button>
+        <button class="button-size">XL</button>
+
+        <p style="margin-top: 50px;">Add customisation</p>
+        <input type="text" placeholder="Name.." class="input-name">
+        <input type="text" placeholder="Number.." class="input-number">
+        
+
+
+        <button class="button-cart">Add To Cart</button><br>
+        <button class="button-prefer">Add To Prefer</button>
+    </div>
+</div>

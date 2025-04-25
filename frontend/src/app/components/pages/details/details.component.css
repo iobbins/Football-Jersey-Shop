@@ -1,0 +1,111 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+    
+}
+.container-image {
+    text-align: center;
+    padding: 20px 0 20px 0;
+}
+.image {
+    height: 550px;
+    width: auto;
+    text-align: center;
+    border-radius: 30px;
+    
+}
+.details {
+    border-left: 1px solid black;
+    padding: 0 20px 0 20px;
+    margin-right: 150px;
+    
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.favorite {
+    color: red;
+    font-size: 30px;
+}
+
+.favorite.not {
+    color: grey;
+}
+
+h4 {
+    font-size: 17px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.price {
+    color: green;
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+.price::before {
+    content: "Price: ";
+    color: darkgray;
+    
+}
+.button-size {
+    height: 45px;
+    width: 80px;
+    margin-right: 5px;
+    background-color: white;
+    color: #1c4069;
+    border-radius: 3px;
+    border: 2px solid #1c4069;
+}
+
+.button-size:hover {
+    background-color: #1c4069;
+    color: white;
+    cursor: pointer;
+}
+
+.input-name, .input-number {
+    height: 30px;
+    border: 2px solid #1c4069;
+    border-radius: 8px;
+    color: #1c4069;
+    padding: 10px;
+}
+.input-name {
+    margin-right: 20px;
+}
+.input-number {
+    width: 100px;
+}
+
+.button-cart {
+    height: 50px;
+    width: 420px;
+    color: white;
+    background: #1c4069;
+    border: 2px solid #1c4069;
+    border-radius: 30px;
+    margin-top: 20px;
+    font-size: large;
+}
+
+.button-cart:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.button-prefer {
+    height: 50px;
+    width: 420px;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 30px;
+    color: #1c4069;
+    font-size: large;
+    cursor: pointer;
+}
