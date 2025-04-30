@@ -1,0 +1,46 @@
+<div class="container">
+    <ul>
+        <li *ngFor="let cartItem of cart.items">
+            <div>
+                <img [src]="cartItem.jersey.image" routerLink="/jersey/{{cartItem.jersey.id}}" >
+            </div>
+            <div>
+                <a routerLink="/jersey/{{cartItem.jersey.id}}">
+                    {{cartItem.jersey.team}} 
+                    <br> 
+                    {{cartItem.jersey.year}}
+                </a>
+            </div>
+            <div>
+                {{cartItem.size}}
+            </div>
+            <div *ngIf="cartItem.customization">
+                {{cartItem.customization}}
+            </div>
+            <div>
+                <select #quantity [value]="cartItem.quantity" (change)="changeQuantity(cartItem, quantity.value)">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div>
+                {{cartItem.price | currency}}
+            </div>
+            <div>
+                <button class="remove-button" (click)="removeFromCart(cartItem)">Remove</button>
+            </div>
+            
+        </li>  
+    </ul>
+    <div class="checkout">
+        <div>
+            <div class="jersey-count">{{cart.totalCount}}</div>
+            <div class="total-price">{{cart.totalPrice|currency}}</div>
+        </div>
+
+        <a routerLink="/checkout">Checkout</a>
+    </div>
+</div>

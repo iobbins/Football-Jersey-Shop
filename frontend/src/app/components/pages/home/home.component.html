@@ -3,14 +3,14 @@
         <a routerLink="/jersey/{{jersey.id}}">
             <img [src]="jersey.image">
             <div class="content">
-                <div class="team">
+                <div>
                     {{jersey.team}} {{jersey.year}}
                 </div>
-                <div class="type">
+                <div>
                     {{jersey.type}}
                 </div>
-                <div class="player">
-                    {{jersey.player}}
+                <div class="size">
+                    {{jersey.size}}
                 </div>
                 <span class="favorite {{jersey.favorite?'':'not'}}">
                     &#10084;

@@ -69,6 +69,11 @@ h4 {
     cursor: pointer;
 }
 
+.button-size.selected {
+    background-color: #1c4069;
+    color: white;
+}
+
 .input-name, .input-number {
     height: 30px;
     border: 2px solid #1c4069;
@@ -81,6 +86,22 @@ h4 {
 }
 .input-number {
     width: 100px;
+}
+
+.button-customization {
+    height: 30px;
+    width: 50px;
+    border: 2px solid #1c4069;
+    border-radius: 8px;
+    background-color: white;
+    color: #1c4069;
+    margin-left: 30px;
+}
+
+.button-customization:hover {
+    background-color: #1c4069;
+    color: white;
+    cursor: pointer;
 }
 
 .button-cart {

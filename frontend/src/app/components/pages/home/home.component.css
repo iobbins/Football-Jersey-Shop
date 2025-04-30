@@ -33,6 +33,11 @@ li a img {
     height: 112px;
     background: #f1f1f1;
 }
+
+.size {
+    margin-top: 10px;
+    font-size: 10px;
+}
 .favorite {
     position: absolute;
     top: 8px;
@@ -51,3 +56,4 @@ li a img {
     margin-top: 11px;
     font-size: 18px;
 }
+

@@ -22,7 +22,7 @@ header {
 
 nav a:hover{
     background:lightsteelblue;
-    color: black;
+    color: #1c4069;
 }
 
 ul {
@@ -56,8 +56,18 @@ ul a {
     text-align: left;
     color: #1c4069;
     padding: 12px 16px;
+    width: 100%;
+    min-width: 128px;
 }
 
 .dropdown-content a:hover {
     background: lightsteelblue;
+}
+
+a span {
+    background: white;
+    color: #1c4069;
+    padding: 6px;
+    border-radius: 80px;
+    font-size: 17px;
 }
