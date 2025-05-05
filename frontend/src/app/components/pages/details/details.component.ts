@@ -19,7 +19,9 @@ export class DetailsComponent {
   constructor(activateRoute: ActivatedRoute, jerseyService:JerseyService, public cartService: CartService, private router: Router) {
     activateRoute.params.subscribe((params) => {
       if(params.id)
-        this.jersey = jerseyService.getJerseyById(params.id);
+        jerseyService.getJerseyById(params.id).subscribe((jerseyService) => {
+        this.jersey = jerseyService;
+        });
     })
   }
 

@@ -1,22 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Jersey } from '../shared/models/jersey';
-import { jerseyList } from '../../data';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { JerseyByIdUrl, JerseyBySearchUrl, JerseyUrl } from '../shared/constants/urls';
 @Injectable({
   providedIn: 'root'
 })
 export class JerseyService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  getAll(): Jersey[]{
-    return jerseyList;
+  getAll(): Observable<Jersey[]>{
+    return this.http.get<Jersey[]>(JerseyUrl);
   }
 
   getAllJerseyBySearchTerm(searchTerm: string){
-    return this.getAll().filter(jersey => jersey.team.toLowerCase().includes(searchTerm.toLowerCase()));
+    return this.http.get<Jersey[]>(JerseyBySearchUrl + searchTerm);
   }
 
-  getJerseyById(jerseyId:number):Jersey {
-    return this.getAll().find(s => s.id == jerseyId) ?? new Jersey();
+  getJerseyById(jerseyId:number):Observable<Jersey> {
+    return this.http.get<Jersey>(JerseyByIdUrl + jerseyId);
   }
 }

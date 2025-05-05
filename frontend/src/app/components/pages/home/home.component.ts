@@ -4,6 +4,7 @@ import { Jersey } from '../../../shared/models/jersey';
 import { JerseyService } from '../../../services/jersey.service';
 import { RouterLink } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -15,11 +16,17 @@ export class HomeComponent {
   jerseyList: Jersey[] = [];
 
   constructor(private jerseyService:JerseyService, activatedRoute: ActivatedRoute){
+    let jerseyObservable: Observable<Jersey[]>;
     activatedRoute.params.subscribe((params) => {
       if(params.searchTerm)
-        this.jerseyList = this.jerseyService.getAllJerseyBySearchTerm(params.searchTerm);
+        jerseyObservable = this.jerseyService.getAllJerseyBySearchTerm(params.searchTerm);
       else
-        this.jerseyList = jerseyService.getAll();
+        jerseyObservable = jerseyService.getAll();
+
+        jerseyObservable.subscribe((serverJersey) => {
+          this.jerseyList = serverJersey;
+        });
+
     });
     
   }
