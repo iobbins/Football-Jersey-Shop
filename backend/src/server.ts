@@ -1,6 +1,11 @@
 import express from 'express';
 import cors from 'cors';
 import { jerseyList } from './data';
+import dotenv from 'dotenv';
+import { DbConnect } from './configs/database.config';
+
+dotenv.config();
+DbConnect();
 
 const app = express();
 const port = 3000;
