@@ -3,15 +3,15 @@
         <a routerLink="/" class="logo">Football Jersey Shop</a>
         <nav>
             <ul>
-                <li>
+                <li *ngIf="!user.token">
                     <a routerLink="/login">Login</a>
                 </li>
-                <li class="dropdown-container">
-                    <a routerLink="/dashboard">Mattia</a>
+                <li *ngIf="isAuth" class="dropdown-container">
+                    <a routerLink="/dashboard">{{user.name}}</a>
                     <div class="dropdown-content">
                         <a routerLink="/profile">Profile</a>
                         <a routerLink="/orders">Orders</a>
-                        <a>Logout</a>
+                        <a (click)="logout()">Logout</a>
                     </div>
                 </li>
                 <li>
