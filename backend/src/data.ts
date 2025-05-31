@@ -180,3 +180,13 @@ export const jerseyList : any[] = [
       price: 30
     }
 ]
+
+export const userList: any[] = [
+  {
+    name: "Mattia",
+    email: "mattia@gmail.com",
+    password: "12345",
+    address: "Milano",
+    isAdmin: true,
+  }
+];
