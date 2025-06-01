@@ -9,8 +9,69 @@
     width: 450px;
 }
 
+h2 {
+    color: #1c4069;
+}
+
 form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 20px;
+}
+
+.form-container {
+    border-radius: 10px;
+    border: 1.5px solid #1c4069;
+}
+
+.input-container {
+    float: left;
+}
+
+label {
+    display: inline-block;
+    margin-top: 8px;
+    margin-left: 8px;
+    color:  lightslategrey;
+    font-size: 16px;
+}
+
+input {
+    display: flex;
+    margin: 8px;
+    align-items: center;
+    width: 100%;
+    border: none;
+
+    outline: none;
+}
+
+.error {
+    display: flex;
+    float: left;
+    color: red;
+    margin-top: 25px;
+    margin-left: 55px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    border: none;
+    border-radius: 16px;
+    background-color: #1c4069;
+    height: 32px;
+    width: 200px;
+    color: white;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+button:hover {
+    opacity: 1;
+    cursor: pointer;
 }

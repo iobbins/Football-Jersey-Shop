@@ -5,25 +5,31 @@
 
         <form [formGroup]="loginForm" (ngSubmit)="submit()">
 
-            <div class="input-container">
-                <label>Email</label>
-                <div>
-                    <input type="email" placeholder="Email" formControlName="email">
+            <div class="form-container">
+                <div class="input-container">
+                    <label>Email</label>
+                    <div>
+                        <input type="email" formControlName="email">
+                    </div>
                 </div>
-            </div>
-            <div class="error" *ngIf="fc.email.errors && isSubmitted">
-                <div *ngIf="fc.email.errors.required">Should not be empty</div>
-                <div *ngIf="fc.email.errors.email">Email is not correct</div>
+            
+                <div class="error" *ngIf="fc.email.errors && isSubmitted">
+                    <div *ngIf="fc.email.errors.required">Should not be empty</div>
+                    <div *ngIf="fc.email.errors.email">Email is not correct</div>
+                </div>
             </div>
 
-            <div class="input-container">
-                <label>Password</label>
-                <div>
-                    <input type="password" placeholder="Password" formControlName="password">
+            <div class="form-container">
+                <div class="input-container">
+                    <label>Password</label>
+                    <div>
+                        <input type="password" formControlName="password">
+                    </div>
                 </div>
-            </div>
-            <div class="error" *ngIf="fc.password.errors && isSubmitted">
-                <div *ngIf="fc.password.errors?.required">Should not be empty</div>
+
+                <div class="error" *ngIf="fc.password.errors && isSubmitted">
+                    <div *ngIf="fc.password.errors?.required">Should not be empty</div>
+                </div>
             </div>
 
             <div class="button">
