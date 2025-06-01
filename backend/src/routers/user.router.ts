@@ -1,8 +1,20 @@
 import { Router } from "express";
 import jwt from 'jsonwebtoken';
 import { UserModel } from "../models/user.model";
+import { userList } from "../data";
 
 const router = Router();
+
+router.get("/initDb", async (req, res) => {
+    const userCount = await UserModel.countDocuments();
+    if(userCount > 0){
+        res.send("Initialization already done");
+        return;
+    }
+
+    await UserModel.create(userList);
+    res.send("Initialization done");
+})
 
 router.post("/login", async (req,res) => {
     const {email, password} = req.body;
