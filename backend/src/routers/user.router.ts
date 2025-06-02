@@ -1,7 +1,8 @@
 import { Router } from "express";
 import jwt from 'jsonwebtoken';
-import { UserModel } from "../models/user.model";
+import { User, UserModel } from "../models/user.model";
 import { userList } from "../data";
+import bcrypt from 'bcryptjs';
 
 const router = Router();
 
@@ -27,6 +28,28 @@ router.post("/login", async (req,res) => {
         res.status(400).send("Username or password is not valid");
     }
 })
+
+router.post("/register", async (req, res) => {
+    const {name, email, password, address} = req.body;
+    const userFound = await UserModel.findOne({email});
+    if(userFound){
+        res.status(400).send("User already register, please login");
+        return;
+    }
+    const encryptedPassword = await bcrypt.hash(password, 10);
+    const newUser = {
+        id:'',
+        name,
+        email: email.toLowerCase(),
+        password: encryptedPassword,
+        address,
+        isAdmin: false
+    }
+    const dbUser = await UserModel.create(newUser);
+    const user = dbUser.toObject();
+    res.send(generateTokenResponse(user));
+})
+
 /**
  * This function takes a user object and generates a json web token, adds the token to the user object and returns
  * the updated user object. 
