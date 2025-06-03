@@ -76,7 +76,7 @@ button:hover {
     cursor: pointer;
 }
 
-.register {
+.login {
     display: flex;
     justify-content: center;
     align-items: center;

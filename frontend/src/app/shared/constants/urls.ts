@@ -5,4 +5,4 @@ export const JerseyBySearchUrl = JerseyUrl + '/search/';
 export const JerseyByIdUrl = JerseyUrl + '/';
 
 export const UserLoginUrl = BaseUrl + '/api/users/login';
-
+export const UserRegisterUrl = BaseUrl + '/api/users/register';

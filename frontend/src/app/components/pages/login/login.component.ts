@@ -3,12 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../../services/user.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, CommonModule, ToastrModule],
+  imports: [ReactiveFormsModule, CommonModule, ToastrModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

@@ -3,8 +3,9 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/models/user';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { HttpClient } from '@angular/common/http';
-import { UserLoginUrl } from '../shared/constants/urls';
+import { UserLoginUrl, UserRegisterUrl } from '../shared/constants/urls';
 import { ToastrService } from 'ngx-toastr';
+import { IUserRegister } from '../shared/interfaces/IUserRegister';
 
 const UserKey = 'User';
 
@@ -32,7 +33,7 @@ export class UserService {
           this.userSubject.next(user);
           //Show a success notification
           this.toastrService.success(
-            `Welcome to Football Jerse Shop ${user.name}`,
+            `Welcome to Football Jersey Shop ${user.name}`,
             'Login Successful'
           )
         },
@@ -40,6 +41,28 @@ export class UserService {
         error: (errorResponse) => {
           //Show an error notification
           this.toastrService.error(errorResponse, 'Login Failed');
+        }
+      })
+    );
+  }
+
+  register(userRegister:IUserRegister): Observable<User> {
+    return this.httpClient.post<User>(UserRegisterUrl, userRegister).pipe(
+      tap({
+         //It is executed if the registration is successful
+        next: (user) => {
+          this.setUserToLocalStorage(user);
+          this.userSubject.next(user);
+          //Show a success notification
+          this.toastrService.success(
+            `Welcome to Football Jersey Shop ${user.name}`,
+            'Registration Successful'
+          )
+        },
+        //It is executed if the registration fails
+        error: (errorResponse) => {
+          //Show an error notification
+          this.toastrService.error(errorResponse, 'Registration Failed');
         }
       })
     );
