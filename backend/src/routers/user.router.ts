@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import { UserModel } from "../models/user.model";
 import { userList } from "../data";
 import bcrypt from 'bcryptjs';
+import { JerseyModel } from "../models/jersey.model";
 
 const router = Router();
 
@@ -17,9 +18,23 @@ router.get("/initDb", async (req, res) => {
     res.send("Initialization done");
 })
 
+router.post("/addProduct", async (req, res) => {
+    const {team, year, type, size, image, price} = req.body;
+    const productFound = await JerseyModel.findOne({team, year, type, size, image, price});
+
+    if(productFound){
+        res.status(400).send("Product already present");
+        return;
+    }else{
+        const newProduct = {id: '', team, year, type, size, image, price};
+        const dbProduct = await JerseyModel.create(newProduct);
+        res.send(dbProduct);
+    }
+})
+
 router.post("/login", async (req,res) => {
     const {email, password} = req.body;
-    const userFound = await UserModel.findOne({email, password});
+    const userFound = await UserModel.findOne({email});
     if(userFound){
         //Converts to object
         const user = userFound.toObject();

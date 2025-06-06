@@ -3,9 +3,11 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/models/user';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { HttpClient } from '@angular/common/http';
-import { UserLoginUrl, UserRegisterUrl } from '../shared/constants/urls';
+import { UserAddProductUrl, UserLoginUrl, UserRegisterUrl } from '../shared/constants/urls';
 import { ToastrService } from 'ngx-toastr';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
+import { Jersey } from '../shared/models/jersey';
+import { IProduct } from '../shared/interfaces/IProduct';
 
 const UserKey = 'User';
 
@@ -21,6 +23,21 @@ export class UserService {
 
   constructor(private httpClient: HttpClient, private toastrService: ToastrService) {
     this.userObservable = this.userSubject.asObservable();
+  }
+
+  addProduct(product: IProduct): Observable<Jersey> {
+    return this.httpClient.post<Jersey>(UserAddProductUrl, product).pipe(
+      tap({
+        next: () => {
+          this.toastrService.success(
+            `Added product successfully`
+          )
+        },
+        error: (errorResponse) => {
+          this.toastrService.error(errorResponse, 'Added product failed');
+        }
+      })
+    );
   }
 
   login(userLogin: IUserLogin): Observable<User> {

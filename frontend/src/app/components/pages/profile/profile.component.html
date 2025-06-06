@@ -1,0 +1,68 @@
+<div class="container" *ngIf="user.isAdmin">
+    <form [formGroup]="productForm" (ngSubmit)="submit()">
+        <h2>Welcome in your profile!</h2>
+        <div class="form-container">
+            <div class="input-container">
+                <label>Inserisci team</label>
+                <input type="text" formControlName="team">
+            </div>
+            <div class="error" *ngIf="fc.team.errors && isSubmitted">
+                <div *ngIf="fc.team.errors.required">Should not be empty</div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <div class="input-container">
+                <label>Inserisci year</label>
+                <input type="text" formControlName="year">
+            </div>
+            <div class="error" *ngIf="fc.year.errors && isSubmitted">
+                <div *ngIf="fc.year.errors.required">Should not be empty</div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <div class="input-container">
+                <label>Inserisci type</label>
+                <input type="text" formControlName="type">
+            </div>
+            <div class="error" *ngIf="fc.type.errors && isSubmitted">
+                <div *ngIf="fc.type.errors.required">Should not be empty</div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <div class="input-container">
+                <label>Inserisci size</label>
+                <input type="text" formControlName="size">
+            </div>
+            <div class="error" *ngIf="fc.size.errors && isSubmitted">
+                <div *ngIf="fc.size.errors.required">Should not be empty</div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <div class="input-container">
+                <label>Inserisci image</label>
+                <input type="text" formControlName="image">
+            </div>
+            <div class="error" *ngIf="fc.image.errors && isSubmitted">
+                <div *ngIf="fc.image.errors.required">Should not be empty</div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <div class="input-container">
+                <label>Inserisci price</label>
+                <input type="text" formControlName="price">
+            </div>
+            <div class="error" *ngIf="fc.price.errors && isSubmitted">
+                <div *ngIf="fc.price.errors.required">Should not be empty</div>
+            </div>
+        </div>
+
+        <div class="button">
+            <button type="submit">Aggiungi prodotto</button>
+        </div>
+    </form>
+</div>

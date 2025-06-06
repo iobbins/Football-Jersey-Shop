@@ -6,3 +6,5 @@ export const JerseyByIdUrl = JerseyUrl + '/';
 
 export const UserLoginUrl = BaseUrl + '/api/users/login';
 export const UserRegisterUrl = BaseUrl + '/api/users/register';
+
+export const UserAddProductUrl = BaseUrl + '/api/users/addProduct';
