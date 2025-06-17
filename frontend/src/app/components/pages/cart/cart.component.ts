@@ -22,12 +22,12 @@ export class CartComponent {
   }
 
   removeFromCart(cartItem:CartItem) {
-    this.cartService.removeFromCart(cartItem.jersey.id, cartItem.size, cartItem?.customization);
+    this.cartService.removeFromCart(cartItem.jersey._id, cartItem.size, cartItem?.customization);
   }
 
   changeQuantity(cartItem: CartItem, quantityInString: string){
     const quantity = parseInt(quantityInString);
-    this.cartService.changeQuantity(cartItem.jersey.id, quantity, cartItem.size, cartItem?.customization);
+    this.cartService.changeQuantity(cartItem.jersey._id, quantity, cartItem.size, cartItem?.customization);
 
   }
 }

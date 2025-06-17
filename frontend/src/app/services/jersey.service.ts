@@ -18,7 +18,7 @@ export class JerseyService {
     return this.http.get<Jersey[]>(JerseyBySearchUrl + searchTerm);
   }
 
-  getJerseyById(jerseyId:number):Observable<Jersey> {
+  getJerseyById(jerseyId:string):Observable<Jersey> {
     return this.http.get<Jersey>(JerseyByIdUrl + jerseyId);
   }
 }

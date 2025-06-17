@@ -1,6 +1,6 @@
 <ul>
     <li *ngFor="let jersey of jerseyList">
-        <a routerLink="/jersey/{{jersey.id}}">
+        <a [routerLink]="['/jersey', jersey._id]">
             <img [src]="jersey.image">
             <div class="content">
                 <div>

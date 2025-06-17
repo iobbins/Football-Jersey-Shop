@@ -1,7 +1,7 @@
 import { Schema, model} from "mongoose";
 
 export interface Jersey {
-    id:number;
+    _id:string;
     team:string;
     year:string;
     type:string;

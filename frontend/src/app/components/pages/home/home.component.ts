@@ -25,6 +25,7 @@ export class HomeComponent {
 
         jerseyObservable.subscribe((serverJersey) => {
           this.jerseyList = serverJersey;
+          //console.log(this.jerseyList)
         });
 
     });

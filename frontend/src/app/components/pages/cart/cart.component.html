@@ -2,10 +2,10 @@
     <ul>
         <li *ngFor="let cartItem of cart.items">
             <div>
-                <img [src]="cartItem.jersey.image" routerLink="/jersey/{{cartItem.jersey.id}}" >
+                <img [src]="cartItem.jersey.image" routerLink="/jersey/{{cartItem.jersey._id}}" >
             </div>
             <div>
-                <a routerLink="/jersey/{{cartItem.jersey.id}}">
+                <a routerLink="/jersey/{{cartItem.jersey._id}}">
                     {{cartItem.jersey.team}} 
                     <br> 
                     {{cartItem.jersey.year}}

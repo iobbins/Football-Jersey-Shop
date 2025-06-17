@@ -1,5 +1,5 @@
 export class Jersey {
-    id!:number;
+    _id!:string;
     team!:string;
     year!:string;
     type!:string;

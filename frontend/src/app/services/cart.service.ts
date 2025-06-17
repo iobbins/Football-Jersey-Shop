@@ -18,7 +18,7 @@ export class CartService {
   constructor() { }
 
   addToCart(jersey: Jersey): void {
-    let cartItem = this.cart.items.find(item => item.jersey.id == jersey.id 
+    let cartItem = this.cart.items.find(item => item.jersey._id == jersey._id 
       && item.size == this.selectedSize 
       && (item.customization || '') == (this.fullCustomization || ''));
 
@@ -29,14 +29,14 @@ export class CartService {
     this.setCartToLocalStorage();
   }
 
-  removeFromCart(jerseyId: number, size:string, customization?:string): void {
-    this.cart.items = this.cart.items.filter(item => !(item.jersey.id == jerseyId && item.size == size 
+  removeFromCart(jerseyId: string, size:string, customization?:string): void {
+    this.cart.items = this.cart.items.filter(item => !(item.jersey._id == jerseyId && item.size == size 
       && item.customization == customization));
     this.setCartToLocalStorage();
   }
 
-  changeQuantity(jerseyId: number, quantity: number, size:string, customization?: string) {
-    let cartItem = this.cart.items.find(item => item.jersey.id == jerseyId && item.size == size
+  changeQuantity(jerseyId: string, quantity: number, size:string, customization?: string) {
+    let cartItem = this.cart.items.find(item => item.jersey._id == jerseyId && item.size == size
       && (item.customization || '') == (customization || ''));
 
     if(!cartItem){
