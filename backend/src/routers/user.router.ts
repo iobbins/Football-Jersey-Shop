@@ -35,7 +35,9 @@ router.post("/addProduct", async (req, res) => {
 router.post("/login", async (req,res) => {
     const {email, password} = req.body;
     const userFound = await UserModel.findOne({email});
-    if(userFound){
+    const passwordValid = await bcrypt.compare(password, userFound?.password as string);
+
+    if(userFound && passwordValid){
         //Converts to object
         const user = userFound.toObject();
         res.send(generateTokenResponse(user));
@@ -78,11 +80,12 @@ const generateTokenResponse = (user:any) => {
         email: user.email,
         isAdmin: user.isAdmin
     }, secretKey, {
-        expiresIn: "30d" 
+        expiresIn: "3h" 
     });
     //Adds the generated token as a property to the user object
     user.token = token;
     return user;
 }
+
 
 export default router;
